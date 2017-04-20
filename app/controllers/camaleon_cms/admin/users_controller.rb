@@ -82,7 +82,7 @@ class CamaleonCms::Admin::UsersController < CamaleonCms::AdminController
   def destroy
     if current_user.id == @user.id
       flash[:error] = t('camaleon_cms.admin.users.message.user_can_not_delete_own_account', default: 'User can not delete own account')
-    else @user.destroy
+    elsif @user.destroy
       flash[:notice] = t('camaleon_cms.admin.users.message.deleted')
       r={user: @user}; hooks_run('user_destroyed', r)
     end
