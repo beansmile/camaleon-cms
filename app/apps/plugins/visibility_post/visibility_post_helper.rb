@@ -35,7 +35,7 @@ module Plugins::VisibilityPost::VisibilityPostHelper
   def plugin_visibility_extra_columns(args)
     if args[:from_body]
       args[:content] = "<td><i class='fa fa-#{{"private"=>"lock", ""=>"lock", "public"=>"eye", "password"=>"eye-slash"}[args[:post].visibility]}'></i> #{args[:post].visibility}</td>"
-      args[:content] = "<td>#{args[:post].the_created_at if args[:post].published_at.present?}</td>"
+      args[:content] = "<td>#{args[:post].the_published_at if args[:post].published_at.present?}</td>"
     else
       args[:content] = "<th>#{t('camaleon_cms.admin.table.visibility')}</th>"
       args[:content] = "<th>#{t('camaleon_cms.admin.table.date_published')}</th>"
