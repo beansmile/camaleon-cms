@@ -234,4 +234,9 @@ class CamaleonCms::PostDecorator < CamaleonCms::ApplicationDecorator
   def self.object_class_name
     'CamaleonCms::Post'
   end
+
+  # return published at date formatted
+  def the_published_at(format = :long)
+    h.l(object.published_at, format: format.to_sym)
+  end
 end
