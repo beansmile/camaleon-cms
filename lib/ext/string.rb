@@ -94,7 +94,7 @@ class String
   end
 
   def cama_fix_filename
-    "#{File.basename(self, File.extname(self)).downcase.gsub(" ", "-").parameterize}#{File.extname(self)}"
+    "#{File.basename(self, File.extname(self)).downcase.gsub(" ", "-")}#{File.extname(self)}"
   end
 
   # return cleaned model class name
