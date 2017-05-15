@@ -20,6 +20,7 @@ class CamaleonCms::Admin::CategoriesController < CamaleonCms::AdminController
     if @category.update(params.require(:category).permit!)
       @category.set_options(params[:meta])
       @category.set_field_values(params[:field_options])
+      @category.touch
       flash[:notice] = t('camaleon_cms.admin.post_type.message.updated')
       redirect_to action: :index
     else
